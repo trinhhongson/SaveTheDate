@@ -78,4 +78,30 @@ function toggleLanguage() {
     });
 
     document.getElementById('form-lang').value = (currentLang === 'vn') ? "Vietnamese" : "English";
+
+    // Update country code default based on language
+    const countrySelect = document.querySelector('select[name="country_code"]');
+    if (currentLang === 'vn') {
+        countrySelect.value = '+84';
+    } else {
+        countrySelect.value = '+1';
+    }
 }
+
+// --- 4. Scroll to Top Button ---
+const scrollBtn = document.getElementById('scroll-to-top');
+
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 100) {
+        scrollBtn.classList.add('visible');
+    } else {
+        scrollBtn.classList.remove('visible');
+    }
+});
+
+scrollBtn.addEventListener('click', () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+});
