@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Save the Date | August 8, 2026</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;600&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
+
+    <style>
+        /* CSS Styles */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden; /* Prevents scrolling */
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* The Slideshow Container */
+        .slideshow-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background-color: #1a1a1a; /* Dark background while loading */
+        }
+
+        /* Individual Slides */
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 2s ease-in-out; /* Smooth 2s fade */
+            object-fit: cover; /* Ensures photos cover screen without stretching */
+            object-position: center;
+        }
+
+        /* Class to show the active image */
+        .slide.active {
+            opacity: 1;
+        }
+
+        /* Dark Overlay to make text readable */
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3); /* 30% darkness */
+            z-index: 0;
+        }
+
+        /* The Text Content */
+        .content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white;
+            z-index: 10;
+            width: 90%;
+        }
+
+        h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 5rem;
+            margin: 0;
+            font-weight: 300;
+            letter-spacing: 2px;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.5);
+        }
+
+        p.subtitle {
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            margin-bottom: 20px;
+            margin-top: 0;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+        }
+
+        .date-box {
+            border-top: 1px solid rgba(255,255,255,0.7);
+            border-bottom: 1px solid rgba(255,255,255,0.7);
+            display: inline-block;
+            padding: 15px 40px;
+            margin-top: 30px;
+        }
+
+        .date {
+            font-size: 2rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+            margin: 0;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+        }
+
+        .location {
+            margin-top: 20px;
+            font-size: 1rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            opacity: 0.9;
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 768px) {
+            h1 { font-size: 3.5rem; }
+            p.subtitle { font-size: 1rem; }
+            .date { font-size: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="slideshow-container">
+        <img src="pics/Jan 29-134.jpg" class="slide active" alt="Wedding Couple">
+        <img src="pics/Jan 29-132.jpg" class="slide" alt="Wedding Couple">
+        <img src="pics/Jan 29-26.jpg" class="slide" alt="Wedding Couple">
+        <img src="pics/Jan 29-116.jpg" class="slide" alt="Wedding Couple">
+        <img src="pics/Jan 29-32.jpg" class="slide" alt="Wedding Couple">
+        <img src="pics/Jan 29-67.jpg" class="slide" alt="Wedding Couple">
+        <img src="pics/Jan 29-17.jpg" class="slide" alt="Wedding Couple">
+        
+        <div class="overlay"></div>
+    </div>
+
+    <div class="content">
+        <p class="subtitle">Save The Date</p>
+        <h1>Sơn Trịnh & Quế Anh</h1>
+        
+        <div class="date-box">
+            <p class="date">August 8, 2026</p>
+        </div>
+
+        <p class="location">Formal Invitation to Follow</p>
+    </div>
+
+    <script>
+        // Slideshow Logic
+        const slides = document.querySelectorAll('.slide');
+        let currentSlide = 0;
+        const slideInterval = 15000; // 15 seconds (15000 milliseconds)
+
+        function nextSlide() {
+            // Remove 'active' class from current slide
+            slides[currentSlide].classList.remove('active');
+            
+            // Calculate next slide index (loop back to 0 if at end)
+            currentSlide = (currentSlide + 1) % slides.length;
+            
+            // Add 'active' class to next slide
+            slides[currentSlide].classList.add('active');
+        }
+
+        // Start the timer
+        setInterval(nextSlide, slideInterval);
+    </script>
+
+</body>
+</html>
