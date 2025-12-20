@@ -22,20 +22,22 @@ function toggleMusic() {
         musicIcon.innerText = "🎵";
         
         // Show Info
+        songInfo.innerText = "Music is playing - At My Worst by Pink Sweat$";
         songInfo.classList.add('visible');
         
-        // Timer logic
+        // No longer auto-hide when playing
         clearTimeout(hideInfoTimer);
-        hideInfoTimer = setTimeout(() => {
-            songInfo.classList.remove('visible');
-        }, 5000);
     } else {
         music.pause();
         musicIcon.innerText = "🔇";
         
-        // Hide info immediately
-        songInfo.classList.remove('visible');
+        // Show "Music is muted" and auto-hide after 5 seconds
+        songInfo.innerText = "Music is muted";
+        songInfo.classList.add('visible');
         clearTimeout(hideInfoTimer);
+        hideInfoTimer = setTimeout(() => {
+            songInfo.classList.remove('visible');
+        }, 5000);
     }
 }
 
@@ -45,14 +47,18 @@ function toggleMusic() {
 music.play().then(() => {
     // Autoplay Successful
     musicIcon.innerText = "🎵";
+    songInfo.innerText = "Music is playing - At My Worst by Pink Sweat$";
     songInfo.classList.add('visible');
-    hideInfoTimer = setTimeout(() => {
-        songInfo.classList.remove('visible');
-    }, 5000);
+    // No setTimeout, stays visible
 }).catch(error => {
     // Autoplay Blocked by Browser (User must click manually)
     console.log("Autoplay prevented by browser policy.");
     musicIcon.innerText = "🔇";
+    songInfo.innerText = "Music is muted";
+    songInfo.classList.add('visible');
+    hideInfoTimer = setTimeout(() => {
+        songInfo.classList.remove('visible');
+    }, 5000);
 });
 
 
