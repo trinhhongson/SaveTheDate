@@ -80,7 +80,7 @@ function toggleLanguage() {
     }
 
     document.querySelectorAll('[data-en]').forEach(el => {
-        el.innerText = el.getAttribute(`data-${currentLang}`);
+        el.innerHTML = el.getAttribute(`data-${currentLang}`);
     });
 
     document.getElementById('form-lang').value = (currentLang === 'vn') ? "Vietnamese" : "English";
