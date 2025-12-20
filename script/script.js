@@ -105,3 +105,20 @@ scrollBtn.addEventListener('click', () => {
         behavior: 'smooth'
     });
 });
+
+// --- 5. Attendee Counter ---
+function increase() {
+    const input = document.getElementById('attendees');
+    let value = parseInt(input.value);
+    if (value < 4) {
+        input.value = value + 1;
+    }
+}
+
+function decrease() {
+    const input = document.getElementById('attendees');
+    let value = parseInt(input.value);
+    if (value > 1) {
+        input.value = value - 1;
+    }
+}

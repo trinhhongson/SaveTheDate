@@ -111,16 +111,11 @@
                 </div>
 
                 <div class="form-group">
-                    <label data-en="Do you have a +1?" data-vn="Bạn có đi cùng người thương không?">Do you have a +1?</label>
-                    <div class="radio-group">
-                        <label class="radio-option">
-                            <input type="radio" name="plus_one" value="Yes" required> 
-                            <span data-en="Yes" data-vn="Có">Yes</span>
-                        </label>
-                        <label class="radio-option">
-                            <input type="radio" name="plus_one" value="No"> 
-                            <span data-en="No" data-vn="Không">No</span>
-                        </label>
+                    <label data-en="How many people including you will be attending?" data-vn="Bao nhiêu người bao gồm bạn sẽ tham dự?">How many people including you will be attending?</label>
+                    <div class="number-input">
+                        <button type="button" onclick="decrease()">-</button>
+                        <input type="number" id="attendees" name="attendees" value="1" min="1" max="4" readonly>
+                        <button type="button" onclick="increase()">+</button>
                     </div>
                 </div>
 
