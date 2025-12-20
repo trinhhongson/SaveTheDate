@@ -146,6 +146,19 @@ p.subtitle {
     cursor: pointer;
     font-weight: 500;
     transition: background 0.3s;
+    list-style: none;
+}
+
+.qa-container summary::before {
+    content: "▶";
+    display: inline-block;
+    margin-right: 10px;
+    transition: transform 0.3s;
+    font-size: 1.2em;
+}
+
+.qa-container details[open] summary::before {
+    transform: rotate(90deg);
 }
 
 .qa-container summary:hover {
