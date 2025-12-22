@@ -137,11 +137,22 @@ p.subtitle {
     text-align: left;
 }
 
+#qa h2 {
+    max-width: 600px;
+    margin: 0 auto 20px;
+}
+
+#qa p {
+    max-width: 600px;
+    margin: 0 auto 30px;
+}
+
 .qa-container details {
     margin-bottom: 15px;
     border: 1px solid rgba(255,255,255,0.3);
     border-radius: 8px;
-    background: rgba(0,0,0,0.3);
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
 }
 
 .qa-container summary {
@@ -172,6 +183,30 @@ p.subtitle {
     padding: 0 15px 15px 15px;
     margin: 0;
     color: rgba(255,255,255,0.9);
+}
+
+.qa-container dl {
+    padding: 0 15px 15px 15px;
+    margin: 0;
+    color: rgba(255,255,255,0.9);
+}
+
+.qa-container dt {
+    font-weight: bold;
+    float: left;
+    width: 130px;
+    clear: left;
+    margin-bottom: 10px;
+}
+
+.qa-container dt::before {
+    content: "•";
+    margin-right: 5px;
+}
+
+.qa-container dd {
+    margin-left: 140px;
+    margin-bottom: 10px;
 }
 
 /* --- FORM STYLES --- */
@@ -221,7 +256,7 @@ p.subtitle {
 .number-input input { background: transparent; border: 1px solid rgba(255,255,255,0.5); padding: 10px; color: white; text-align: center; width: 50px; font-size: 1rem; }
 
 @media (max-width: 768px) {
-    h1 { font-size: 3rem; flex-direction: column; gap: 0; }
+    h1 { font-size: 2.5rem; flex-direction: column; gap: 0; }
     .date { font-size: 1.5rem; }
     .form-wrapper { padding: 20px; width: 90%; }
     .music-container { top: 20px; left: 20px; }
