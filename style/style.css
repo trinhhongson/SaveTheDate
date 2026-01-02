@@ -179,6 +179,26 @@ p.subtitle {
     background: rgba(255,255,255,0.1);
 }
 
+.qa-container details p {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+}
+
+.qa-container details[open] p {
+    max-height: 1000px;
+}
+
+.qa-container details dl {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+}
+
+.qa-container details[open] dl {
+    max-height: 1000px;
+}
+
 .qa-container p {
     padding: 0 15px 15px 15px;
     margin: 0;
@@ -234,6 +254,11 @@ p.subtitle {
     font-size: 1rem;
 }
 .web3-form select:focus { outline: none; border-color: white; background: rgba(255,255,255,0.1); }
+
+.web3-form select option {
+    background: black;
+    color: white;
+}
 
 .phone-input { display: flex; gap: 10px; }
 .phone-input select { flex: 0 0 auto; width: auto; }
